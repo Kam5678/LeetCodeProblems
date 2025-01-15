@@ -1,0 +1,37 @@
+// Dart Implementation
+class Solution {
+  int hammingWeight(int n) {
+    
+    String byteRep =  getBitString(n);
+    print(byteRep);
+    return "1".allMatches(byteRep).length;
+    
+  }
+
+    String getBitString(int num) { // Can replace this whole implementation with .toRadixString(2)
+    String bitString = "";
+    int max = 0;
+    int numPlaceHolder = num;
+    // Get max exponent val
+    for (int i = 0; i <= 30; i++) {
+      if (pow(2, i) <= num) {
+        max+=1;
+      } else {
+        max-=1;
+        break;
+      }
+    }
+    
+    for(int j=max ; j>=0 ; j--){
+      if(pow(2,j) <= numPlaceHolder){
+        numPlaceHolder -= pow(2,j).toInt();
+        bitString += "1";
+      }
+      else{
+        bitString +="0";
+      }
+    }
+    return bitString;
+  }
+
+}
