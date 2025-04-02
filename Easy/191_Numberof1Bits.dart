@@ -1,4 +1,6 @@
 // Dart Implementation
+import 'dart:math';
+
 class Solution {
   int hammingWeight(int n) {
     
